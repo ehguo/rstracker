@@ -6,6 +6,7 @@ const daily = [
   'Challenge System',
   'Geoffrey',
   'Jack of trades aura',
+  'Jade vine',
   'Nemi Forest',
   'Robin',
   'Skill outfit add-ons',
@@ -114,10 +115,12 @@ const renderItem = () => (
   })
 );
 
-const renderCheckbox = () => (
+const renderCheckbox = (item, checked) => (
   $('<input></input>', {
+    id: `${item}`,
     type: 'checkbox',
-    class: 'checkbox'
+    class: 'checkbox',
+    checked
   })
 );
 
@@ -130,7 +133,7 @@ const renderLink = text => (
   })
 );
 
-const Section = (title, items) => {
+const Section = (title, items, data) => {
   const $section = renderSection();
   const $header = renderHeader();
   const $title = renderTitle(title);
@@ -146,8 +149,12 @@ const Section = (title, items) => {
 
   items.forEach(item => {
     const $item = renderItem();
-    const $checkbox = renderCheckbox();
+    const $checkbox = renderCheckbox(item, data[item]);
     const $link = renderLink(item);
+
+    if (data[item]) {
+      $link.addClass('strikethrough');
+    }
 
     $item.append($checkbox);
     $item.append($link);
@@ -159,12 +166,35 @@ const Section = (title, items) => {
   return $section;
 };
 
+const startSaving = () => {
+  const save = () => {
+    const $items = $('.checkbox');
+    const data = Object.values($items)
+      .filter(item => item.id)
+      .reduce((result, { id, checked }) => {
+        result[id] = checked;
+        return result;
+      }, {});
+    const jsoned = JSON.stringify(data);
+    localStorage.setItem('state', jsoned);
+  };
+  setInterval(save, 1000);
+};
+
+const load = () => {
+  const state = localStorage.getItem('state');
+  return JSON.parse(state);
+};
+
 $().ready(() => {
   const $root = $('#root');
 
-  $root.append(Section('Daily', daily));
-  $root.append(Section('Weekly', weekly));
-  $root.append(Section('Monthly', monthly));
+  const data = load();
+
+  $root.append(Section('Daily', daily, data));
+  $root.append(Section('Weekly', weekly, data));
+  $root.append(Section('Monthly', monthly, data));
 
   startUpdatingTimers();
+  startSaving();
 });
