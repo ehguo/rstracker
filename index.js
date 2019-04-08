@@ -42,6 +42,8 @@ const monthly = [
 const underscoreText = text => text.replace(/ /g, '_');
 
 const startUpdatingTimers = () => {
+  const getDaysInMonth = (month, year) => new Date(year, month, 0).getDate();
+
   const updateTimer = () => {
     const now = new Date();
 
@@ -49,15 +51,30 @@ const startUpdatingTimers = () => {
     const hour = now.getUTCHours();
     const day = now.getUTCDay();
     const date = now.getUTCDate();
+    const month = now.getUTCMonth();
+    const year = now.getUTCFullYear();
+    const daysInMonth = getDaysInMonth(month, year);
 
     const minutesUntilReset = 60 - minute;
     const hoursUntilReset = 23 - hour;
     const daysUntilReset = day > 2 ? 9 - day : 2 - day;
-    const monthsUntilReset = 30 - date;
+    const monthsUntilReset = daysInMonth - date;
 
-    $('#Daily').text(`${hoursUntilReset}:${minutesUntilReset} hours`);
-    $('#Weekly').text(`${daysUntilReset} days`);
-    $('#Monthly').text(`${monthsUntilReset} days`);
+    const dailyResetString = `${hoursUntilReset}:${minutesUntilReset > 9
+      ? minutesUntilReset
+      : `0${minutesUntilReset}`} hours`;
+
+    const weeklyResetString = daysUntilReset >= 1
+      ? `${daysUntilReset} days`
+      : dailyResetString;
+    
+    const monthlyResetString = monthsUntilReset >= 1
+      ? `${monthsUntilReset} days`
+      : dailyResetString;
+
+    $('#Daily').text(dailyResetString);
+    $('#Weekly').text(weeklyResetString);
+    $('#Monthly').text(monthlyResetString);
   };
 
   setInterval(updateTimer, 1000);
