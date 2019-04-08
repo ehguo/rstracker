@@ -29,6 +29,7 @@ const weekly = [
   'Rush of Blood',
   'Shattered Heart',
   'Shattered Worlds',
+  'Skeletal Horror',
   'Tears of Guthix'
 ];
 
