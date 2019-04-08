@@ -62,6 +62,9 @@ const startUpdatingTimers = () => {
 };
 
 const handleClick = ($checkbox, $link, e) => {
+  if (e.target.className === 'link') {
+    return;
+  }
   if (e.target.className === 'checkbox') {
     $link.toggleClass('strikethrough');
     return;
