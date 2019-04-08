@@ -189,7 +189,7 @@ const load = () => {
 $().ready(() => {
   const $root = $('#root');
 
-  const data = load();
+  const data = load() || {};
 
   $root.append(Section('Daily', daily, data));
   $root.append(Section('Weekly', weekly, data));
