@@ -27,6 +27,7 @@ const weekly = [
   'Meg',
   'Penguin Hide and Seek',
   'Rush of Blood',
+  'Shattered Heart',
   'Shattered Worlds',
   'Tears of Guthix'
 ];
