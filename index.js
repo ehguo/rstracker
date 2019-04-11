@@ -3,9 +3,11 @@ $().ready(() => {
 
   const data = load('state') || {};
 
-  $root.append(RepeatableSection('Daily', daily, data));
-  $root.append(RepeatableSection('Weekly', weekly, data));
-  $root.append(RepeatableSection('Monthly', monthly, data));
+  const $dailySection = RepeatableSection('Daily', daily, data);
+  const $weeklySection = RepeatableSection('Weekly', weekly, data);
+  const $monthlySection = RepeatableSection('Monthly', monthly, data);
+
+  $root.append($dailySection, $weeklySection, $monthlySection);
 
   startUpdatingTimers();
 });
@@ -17,22 +19,91 @@ const resetTypes = { day: 'day', week: 'week', month: 'month' };
 
 const getDaysInMonth = now => new Date(now.getUTCFullYear(), now.getUTCMonth() + 1, 0).getDate();
 
-const getTimeUntilReset = now => {
-  const minutes = 60 - now.getUTCMinutes();
-  const hours = 23 - now.getUTCHours();
-  const daysWeek = now.getUTCDay() <= 2 ? 2 - now.getUTCDay() : 9 - now.getUTCDay();
-  const daysMonth = getDaysInMonth(now) - now.getUTCDate();
+const getTimersUntilReset = now => {
+  const year = now.getUTCFullYear();
+  const daysInMonth = getDaysInMonth(now);
+  const month = now.getUTCMonth();
+  const day = now.getUTCDate();
+  const dayOfWeek = now.getUTCDay();
 
-  const dailyString = `${hours > 9 ? '' : '0'}${hours}:${minutes > 9 ? '' : '0'}${minutes} hours`;
-  const weeklyString = daysWeek > 1 ? `${daysWeek} days` : dailyString;
-  const monthlyString = daysMonth > 0 ? `${daysMonth} days` : dailyString;
+  const monthEnd = new Date(Date.UTC(year, month, daysInMonth, 24));
+  const weekEnd = new Date(Date.UTC(year, month, (dayOfWeek <= 2 ? day + (2 - dayOfWeek) : day + (9 - dayOfWeek)), 24));
+  const dayEnd = new Date(Date.UTC(year, month, day, 24));
 
-  return { dailyString, weeklyString, monthlyString };
+  const dailyTimer = dayEnd - now;
+  const weeklyTimer = weekEnd - now;
+  const monthlyTimer = monthEnd - now;
+
+  return {
+    dayEnd,
+    dailyTimer,
+    weekEnd,
+    weeklyTimer,
+    monthEnd,
+    monthlyTimer
+  };
+};
+
+const getTimerString = timer => {
+  let ms = timer;
+
+  const msInDay = 1000*60*60*24;
+  const msInHour = 1000*60*60;
+  const msInMinute = 1000*60;
+
+  const days = `${Math.floor(ms / msInDay)}`;
+  ms %= msInDay;
+
+  const hours = `${Math.floor(ms / msInHour)}`.padStart(2, '0');
+  ms %= msInHour;
+
+  const minutes = `${Math.floor(ms / msInMinute)}`.padStart(2, '0');
+  ms %= msInMinute;
+
+  return days < 1
+    ? `${hours}:${minutes}`
+    : `${days} days`;
 };
 
 const updateTimers = () => {
   const now = new Date();
-  const { dailyString, weeklyString, monthlyString } = getTimeUntilReset(now);
+  const {
+    dayEnd,
+    dailyTimer,
+    weekEnd,
+    weeklyTimer,
+    monthEnd,
+    monthlyTimer
+  } = getTimersUntilReset(now);
+
+  const dailyString = getTimerString(dailyTimer);
+  const weeklyString = getTimerString(weeklyTimer);
+  const monthlyString = getTimerString(monthlyTimer);
+
+  const timers = load('timers') || {};
+
+  if (!timers.dayEnd) {
+    save('dayEnd', dayEnd);
+  }
+  if (!timers.weekEnd) {
+    save('weekEnd', weekEnd);
+  }
+  if (!timers.monthEnd) {
+    save('monthEnd', monthEnd);
+  }
+
+  if (now > timers.dayEnd) {
+    resetDaily();
+    save('dayEnd', dayEnd);
+  }
+  if (now > timers.weekEnd) {
+    resetWeekly();
+    save('weekEnd', weekEnd);
+  }
+  if (now > timers.monthEnd) {
+    resetMonthly();
+    save('monthEnd', monthEnd);
+  }
 
   $('#Daily').text(dailyString);
   $('#Weekly').text(weeklyString);
@@ -41,7 +112,7 @@ const updateTimers = () => {
 
 const startUpdatingTimers = () => {
   updateTimers();
-  setInterval(updateTimers, 1000);
+  setInterval(updateTimers, 3000);
 };
 
 
@@ -120,12 +191,43 @@ const handleItemClick = (id, item, data) => (e) => {
   save('state', data);
 };
 
-const handleReset = ($items, items, data) => (e) => {
+const handleReset = ($items, items, data) => () => {
   items.forEach(item => {
     data[item] = false;
   });
   $('.checkbox', $items).prop('checked', false);
   $('.link', $items).removeClass('strikethrough');
+  save('state', data);
+};
+
+const resetDaily = () => {
+  const data = load('state');
+  daily.forEach(item => {
+    data[item] = false;
+  });
+  save('state', data);
+  $('.checkbox', $('#Daily')).prop('checked', false);
+  $('.link', $('#Daily')).removeClass('strikethrough');
+};
+
+const resetWeekly = () => {
+  const data = load('state');
+  weekly.forEach(item => {
+    data[item] = false;
+  });
+  save('state', data);
+  $('.checkbox', $('#Weekly')).prop('checked', false);
+  $('.link', $('#Weekly')).removeClass('strikethrough');
+};
+
+const resetMonthly = () => {
+  const data = load('state');
+  monthly.forEach(item => {
+    data[item] = false;
+  });
+  save('state', data);
+  $('.checkbox', $('#Monthly')).prop('checked', false);
+  $('.link', $('#Monthly')).removeClass('strikethrough');
 };
 
 
