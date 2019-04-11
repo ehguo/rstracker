@@ -8,12 +8,6 @@ $().ready(() => {
   $root.append(RepeatableSection('Monthly', monthly, data));
 
   startUpdatingTimers();
-  // startSaving();
-
-  // setInterval(() => {
-  //   const now = new Date();
-  //   console.log(getTimeUntilReset(now))
-  // }, 1000);
 });
 
 /******************************************************************************
@@ -36,16 +30,17 @@ const getTimeUntilReset = now => {
   return { dailyString, weeklyString, monthlyString };
 };
 
-const startUpdatingTimers = () => {
-  const updateTimers = () => {
-    const now = new Date();
-    const { dailyString, weeklyString, monthlyString } = getTimeUntilReset(now);
-  
-    $('#Daily').text(dailyString);
-    $('#Weekly').text(weeklyString);
-    $('#Monthly').text(monthlyString);
-  };
+const updateTimers = () => {
+  const now = new Date();
+  const { dailyString, weeklyString, monthlyString } = getTimeUntilReset(now);
 
+  $('#Daily').text(dailyString);
+  $('#Weekly').text(weeklyString);
+  $('#Monthly').text(monthlyString);
+};
+
+const startUpdatingTimers = () => {
+  updateTimers();
   setInterval(updateTimers, 1000);
 };
 
@@ -82,7 +77,6 @@ const RepeatableSection = (title, items, data) => {
   const $title = H1({ class: 'title', text: title });
   const $reset = Span({ class: 'reset', text: 'reset' });
   const $timer = Span({ id: title, class: 'timer', text: '' });
-  $reset.on('click', handleReset);
   $header.append($title, $reset, $timer);
 
   const $items = Div({ class: 'items' });
@@ -104,6 +98,8 @@ const RepeatableSection = (title, items, data) => {
     $items.append($item);
   });
 
+  $reset.on('click', handleReset($items, items, data));
+
   $section.append($header, $items);
   return $section;
 };
@@ -124,43 +120,52 @@ const handleItemClick = (id, item, data) => (e) => {
   save('state', data);
 };
 
+const handleReset = ($items, items, data) => (e) => {
+  items.forEach(item => {
+    data[item] = false;
+  });
+  $('.checkbox', $items).prop('checked', false);
+  $('.link', $items).removeClass('strikethrough');
+};
+
 
 /******************************************************************************
  * Default values
  */
 const daily = [
   'Arhein',
-  'Battlestaff',
   'Bert',
-  'Bork',
-  'Challenge System',
   'Geoffrey',
-  'Jack of trades aura',
-  'Jade vine',
-  'Nemi Forest',
   'Robin',
-  'Skill outfit add-ons',
-  'Soul obelisk (Menaphos)',
-  'Vis wax',
+  'Rug merchant',
+  'Weird Old Man',
+  'Wizard Cromperty',
+  'Jack of trades aura',
+  'Nemi Forest',
+  'Battlestaff',
   'Wicked hood',
-  'Wizard Cromperty'
+  'Vis wax',
+  'Desert amulet',
+  'Challenge System',
+  'Jade vine',
+  'Menaphos',
+  'Bork'
 ];
 
 const weekly = [
-  'Agoroth',
-  'Balthazar Beauregard\'s Big Top Bonanza',
-  'Broken Home',
-  'Clan Citadel',
-  'Familiarisation',
-  'Hanky points',
-  'Managing Miscellania',
   'Meg',
+  'Agoroth',
+  'Tears of Guthix',
   'Penguin Hide and Seek',
+  'Balthazar Beauregard\'s Big Top Bonanza',
+  'Hanky points',
+  'Clan Citadel',
+  'Managing Miscellania',
+  'Broken Home',
   'Rush of Blood',
   'Shattered Heart',
   'Shattered Worlds',
   'Skeletal Horror',
-  'Tears of Guthix'
 ];
 
 const monthly = [
@@ -168,21 +173,3 @@ const monthly = [
   'God Statues',
   'Troll Invasion'
 ];
-
-// const handleClick = ($checkbox, $link, e) => {
-//   if (e.target.className === 'link') {
-//     return;
-//   }
-//   if (e.target.className === 'checkbox') {
-//     $link.toggleClass('strikethrough');
-//     return;
-//   }
-//   $checkbox.prop('checked', !$checkbox.prop('checked'));
-//   $link.toggleClass('strikethrough');
-// };
-
-// const handleReset = e => {
-//   $('.checkbox', $(e.target).closest('.section')).prop('checked', false);
-//   $('.link', $(e.target).closest('.section')).removeClass('strikethrough');
-// }
-
