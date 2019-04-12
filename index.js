@@ -80,27 +80,29 @@ const updateTimers = () => {
   const weeklyString = getTimerString(weeklyTimer);
   const monthlyString = getTimerString(monthlyTimer);
 
-  const timers = load('timers') || {};
+  const storedDayEnd = load('dayEnd') || 0;
+  const storedWeekEnd = load('weekEnd') || 0;
+  const storedMonthEnd = load('monthEnd') || 0;
 
-  if (!timers.dayEnd) {
+  if (!storedDayEnd) {
     save('dayEnd', dayEnd);
   }
-  if (!timers.weekEnd) {
+  if (!storedWeekEnd) {
     save('weekEnd', weekEnd);
   }
-  if (!timers.monthEnd) {
+  if (!storedMonthEnd) {
     save('monthEnd', monthEnd);
   }
 
-  if (now > timers.dayEnd) {
+  if (now > new Date(storedDayEnd)) {
     resetDaily();
     save('dayEnd', dayEnd);
   }
-  if (now > timers.weekEnd) {
+  if (now > new Date(storedWeekEnd)) {
     resetWeekly();
     save('weekEnd', weekEnd);
   }
-  if (now > timers.monthEnd) {
+  if (now > new Date(storedMonthEnd)) {
     resetMonthly();
     save('monthEnd', monthEnd);
   }
@@ -201,7 +203,7 @@ const handleReset = ($items, items, data) => () => {
 };
 
 const resetDaily = () => {
-  const data = load('state');
+  const data = load('state') || {};
   daily.forEach(item => {
     data[item] = false;
   });
@@ -211,7 +213,7 @@ const resetDaily = () => {
 };
 
 const resetWeekly = () => {
-  const data = load('state');
+  const data = load('state') || {};
   weekly.forEach(item => {
     data[item] = false;
   });
@@ -221,7 +223,7 @@ const resetWeekly = () => {
 };
 
 const resetMonthly = () => {
-  const data = load('state');
+  const data = load('state') || {};
   monthly.forEach(item => {
     data[item] = false;
   });
