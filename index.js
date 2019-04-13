@@ -239,6 +239,7 @@ const resetMonthly = () => {
 const daily = [
   'Arhein',
   'Bert',
+  'Dell Monti',
   'Geoffrey',
   'Robin',
   'Rug merchant',
@@ -252,9 +253,9 @@ const daily = [
   'Desert amulet',
   'Challenge System',
   'Jade vine',
+  'Phoenix',
   'Menaphos',
-  'Bork',
-  'Phoenix'
+  'Bork'
 ];
 
 const weekly = [
