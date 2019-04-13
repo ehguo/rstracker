@@ -253,7 +253,8 @@ const daily = [
   'Challenge System',
   'Jade vine',
   'Menaphos',
-  'Bork'
+  'Bork',
+  'Phoenix'
 ];
 
 const weekly = [
