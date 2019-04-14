@@ -144,7 +144,7 @@ const A = props => $('<a></a>', props);
 const Input = props => $('<input></input>', props);
 
 const RepeatableSection = (title, items, data) => {
-  const $section = Section({ class: 'section' });
+  const $section = Section({ id: `${title}Section`, class: 'section' });
 
   const $header = Div({ class: 'header' });
   const $title = H1({ class: 'title', text: title });
@@ -208,8 +208,8 @@ const resetDaily = () => {
     data[item] = false;
   });
   save('state', data);
-  $('.checkbox', $('#Daily')).prop('checked', false);
-  $('.link', $('#Daily')).removeClass('strikethrough');
+  $('.checkbox', $('#DailySection')).prop('checked', false);
+  $('.link', $('#DailySection')).removeClass('strikethrough');
 };
 
 const resetWeekly = () => {
@@ -218,8 +218,8 @@ const resetWeekly = () => {
     data[item] = false;
   });
   save('state', data);
-  $('.checkbox', $('#Weekly')).prop('checked', false);
-  $('.link', $('#Weekly')).removeClass('strikethrough');
+  $('.checkbox', $('#WeeklySection')).prop('checked', false);
+  $('.link', $('#WeeklySection')).removeClass('strikethrough');
 };
 
 const resetMonthly = () => {
@@ -228,8 +228,8 @@ const resetMonthly = () => {
     data[item] = false;
   });
   save('state', data);
-  $('.checkbox', $('#Monthly')).prop('checked', false);
-  $('.link', $('#Monthly')).removeClass('strikethrough');
+  $('.checkbox', $('#MonthlySection')).prop('checked', false);
+  $('.link', $('#MonthlySection')).removeClass('strikethrough');
 };
 
 
