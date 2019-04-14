@@ -268,9 +268,7 @@ const weekly = [
   'Clan Citadel',
   'Managing Miscellania',
   'Broken Home',
-  'Rush of Blood',
   'Shattered Heart',
-  'Shattered Worlds',
   'Skeletal Horror',
 ];
 
