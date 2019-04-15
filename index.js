@@ -166,12 +166,12 @@ const RepeatableSection = (title, items, data) => {
     });
     if (data[item]) $link.addClass('strikethrough');
     $item.append($checkbox, $link);
-    $item.on('click', handleItemClick(id, item, data));
+    $item.on('click', handleItemClick(id, item));
 
     $items.append($item);
   });
 
-  $reset.on('click', handleReset($items, items, data));
+  $reset.on('click', handleReset($items, items));
 
   $section.append($header, $items);
   return $section;
@@ -181,8 +181,9 @@ const RepeatableSection = (title, items, data) => {
 /******************************************************************************
  * Event handlers
  */
-const handleItemClick = (id, item, data) => (e) => {
+const handleItemClick = (id, item) => (e) => {
   e.stopPropagation(e);
+  const data = load('state') || {};
   if (e.target.className === 'link') return;
   data[item] = !data[item];
 
@@ -193,7 +194,8 @@ const handleItemClick = (id, item, data) => (e) => {
   save('state', data);
 };
 
-const handleReset = ($items, items, data) => () => {
+const handleReset = ($items, items) => () => {
+  const data = load('state') || {};
   items.forEach(item => {
     data[item] = false;
   });
