@@ -243,7 +243,6 @@ const daily = [
   'Bert',
   'Dell Monti',
   'Geoffrey',
-  'Robin',
   'Rug merchant',
   'Weird Old Man',
   'Wizard Cromperty',
@@ -267,11 +266,10 @@ const weekly = [
   'Penguin Hide and Seek',
   'Balthazar Beauregard\'s Big Top Bonanza',
   'Hanky points',
-  'Clan Citadel',
   'Managing Miscellania',
-  'Broken Home',
-  'Shattered Heart',
   'Skeletal Horror',
+  'Clan Citadel',
+  'Shattered Heart'
 ];
 
 const monthly = [
