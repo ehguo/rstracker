@@ -253,7 +253,9 @@ const daily = [
   'Vis wax',
   'Desert amulet',
   'Challenge System',
-  'Jade vine',
+  'Serenity posts',
+  'Red sandstone',
+  'Crystal-flecked sandstone',
   'Phoenix',
   'Menaphos',
   'Bork'
@@ -269,7 +271,10 @@ const weekly = [
   'Managing Miscellania',
   'Skeletal Horror',
   'Clan Citadel',
-  'Shattered Heart'
+  'Strange rock',
+  'Golden rock',
+  'Spirit pig',
+  'Rush of Blood'
 ];
 
 const monthly = [
