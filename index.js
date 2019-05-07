@@ -249,17 +249,11 @@ const daily = [
   'Robin',
   'Jack of trades aura',
   'Nemi Forest',
-  'Battlestaff',
   'Wicked hood',
   'Vis wax',
   'Desert amulet',
   'Challenge System',
-  'Serenity posts',
-  'Red sandstone',
-  'Crystal-flecked sandstone',
-  'Phoenix',
-  'Menaphos',
-  'Bork'
+  'Phoenix'
 ];
 
 const weekly = [
