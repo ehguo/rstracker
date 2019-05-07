@@ -270,6 +270,7 @@ const weekly = [
   'Balthazar Beauregard\'s Big Top Bonanza',
   'Hanky points',
   'Managing Miscellania',
+  'Familiarisation',
   'Skeletal Horror',
   'Clan Citadel',
   'Strange rock',
