@@ -252,8 +252,7 @@ const daily = [
   'Wicked hood',
   'Vis wax',
   'Desert amulet',
-  'Challenge System',
-  'Phoenix'
+  'Challenge System'
 ];
 
 const weekly = [
