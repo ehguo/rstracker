@@ -251,7 +251,6 @@ const daily = [
   'Nemi Forest',
   'Wicked hood',
   'Vis wax',
-  'Desert amulet',
   'Challenge System'
 ];
 
