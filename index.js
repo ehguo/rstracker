@@ -268,7 +268,8 @@ const weekly = [
   'Strange rock',
   'Golden rock',
   'Spirit pig',
-  'Rush of Blood'
+  'Rush of Blood',
+  'Aquarium'
 ];
 
 const monthly = [
