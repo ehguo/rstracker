@@ -260,7 +260,6 @@ const weekly = [
   'Tears of Guthix',
   'Penguin Hide and Seek',
   'Balthazar Beauregard\'s Big Top Bonanza',
-  'Hanky points',
   'Managing Miscellania',
   'Familiarisation',
   'Skeletal Horror',
