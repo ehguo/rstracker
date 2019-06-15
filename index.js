@@ -239,13 +239,6 @@ const resetMonthly = () => {
  * Default values
  */
 const daily = [
-  'Arhein',
-  'Bert',
-  'Dell Monti',
-  'Geoffrey',
-  'Rug merchant',
-  'Weird Old Man',
-  'Wizard Cromperty',
   'Robin',
   'Jack of trades aura',
   'Nemi Forest',
