@@ -244,7 +244,6 @@ const daily = [
   'Nemi Forest',
   'Wicked hood',
   'Vis wax',
-  'The Arc',
   'Challenge System'
 ];
 
@@ -254,14 +253,11 @@ const weekly = [
   'Tears of Guthix',
   'Penguin Hide and Seek',
   'Balthazar Beauregard\'s Big Top Bonanza',
-  'Managing Miscellania',
-  'Familiarisation',
   'Skeletal Horror',
   'Clan Citadel',
   'Strange rock',
   'Golden rock',
   'Spirit pig',
-  'Rush of Blood',
   'Aquarium'
 ];
 
