@@ -253,6 +253,8 @@ const weekly = [
   'Tears of Guthix',
   'Penguin Hide and Seek',
   'Balthazar Beauregard\'s Big Top Bonanza',
+  'Herby Werby',
+  'Totem (Anachronia)',
   'Skeletal Horror',
   'Clan Citadel',
   'Strange rock',
