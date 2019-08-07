@@ -255,6 +255,7 @@ const weekly = [
   'Balthazar Beauregard\'s Big Top Bonanza',
   'Herby Werby',
   'Totem (Anachronia)',
+  'Managing Miscellania',
   'Skeletal Horror',
   'Clan Citadel',
   'Strange rock',
