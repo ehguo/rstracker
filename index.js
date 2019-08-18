@@ -260,7 +260,7 @@ const weekly = [
   'Managing Miscellania',
   'Skeletal Horror',
   'Clan Citadel',
-  'Shattered Worlds#Challenge mode',
+  'Shattered Worlds',
   'Familiarisation',
   'Strange rock',
   'Golden rock',
