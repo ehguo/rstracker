@@ -244,6 +244,7 @@ const daily = [
   'Nemi Forest',
   'Wicked hood',
   'Vis wax',
+  'Gorajo resource dungeon',
   'Challenge System'
 ];
 
