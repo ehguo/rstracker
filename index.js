@@ -245,6 +245,7 @@ const daily = [
   'Wicked hood',
   'Vis wax',
   'Gorajo resource dungeon',
+  'Travelling Merchant\'s Shop',
   'Challenge System'
 ];
 
