@@ -246,7 +246,8 @@ const daily = [
   'Vis wax',
   'Gorajo resource dungeon',
   'Travelling Merchant\'s Shop',
-  'Challenge System'
+  'Challenge System',
+  'Bork'
 ];
 
 const weekly = [
