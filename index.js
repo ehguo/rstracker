@@ -254,19 +254,18 @@ const weekly = [
   'Meg',
   'Aquarium',
   'Agoroth',
-  'Tears of Guthix',
+  'Herby Werby',
+  'Totem (Anachronia)',
   'Penguin Hide and Seek',
   'Spirit pig',
   'Balthazar Beauregard\'s Big Top Bonanza',
-  'Herby Werby',
-  'Totem (Anachronia)',
+  'Tears of Guthix',
   'Managing Miscellania',
   'Skeletal Horror',
   'Clan Citadel',
   'Shattered Worlds',
   'Familiarisation',
-  'Strange rock',
-  'Golden rock',
+  'Strange rock'
 ];
 
 const monthly = [
