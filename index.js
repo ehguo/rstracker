@@ -247,7 +247,8 @@ const daily = [
   'Gorajo resource dungeon',
   'Travelling Merchant\'s Shop',
   'Challenge System',
-  'Bork'
+  'Bork',
+  'Crystal tree (Farming)'
 ];
 
 const weekly = [
