@@ -248,7 +248,8 @@ const daily = [
   'Travelling Merchant\'s Shop',
   'Challenge System',
   'Bork',
-  'Crystal tree (Farming)'
+  'Crystal tree (Farming)',
+  'Herbs'
 ];
 
 const weekly = [
