@@ -248,7 +248,8 @@ const daily = [
   'Travelling Merchant\'s Shop',
   'Challenge System',
   'Crystal tree (Farming)',
-  'Herbs'
+  'Herbs',
+  'Soul Reaper'
 ];
 
 const weekly = [
@@ -265,8 +266,7 @@ const weekly = [
   'Skeletal Horror',
   'Clan Citadel',
   'Shattered Worlds',
-  'Familiarisation',
-  'Strange rock'
+  'Familiarisation'
 ];
 
 const monthly = [
