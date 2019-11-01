@@ -240,7 +240,6 @@ const resetMonthly = () => {
  */
 const daily = [
   'Jack of trades aura',
-  'Nemi Forest',
   'Wicked hood',
   'Vis wax',
   'Gorajo resource dungeon',
