@@ -239,7 +239,6 @@ const resetMonthly = () => {
  * Default values
  */
 const daily = [
-  'Robin',
   'Jack of trades aura',
   'Nemi Forest',
   'Wicked hood',
