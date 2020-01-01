@@ -257,7 +257,6 @@ const weekly = [
   'Herby Werby',
   'Totem (Anachronia)',
   'Penguin Hide and Seek',
-  'Spirit pig',
   'Balthazar Beauregard\'s Big Top Bonanza',
   'Tears of Guthix',
   'Managing Miscellania',
