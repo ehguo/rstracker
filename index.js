@@ -247,6 +247,7 @@ const daily = [
   'Challenge System',
   'Crystal tree (Farming)',
   'Herbs',
+  'Bloodwood tree',
   'Soul Reaper'
 ];
 
