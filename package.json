@@ -1,0 +1,29 @@
+{
+  "name": "rstracker",
+  "version": "1.0.0",
+  "description": "runescape repeatable events tracker",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ehguo/rstracker.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ehguo/rstracker/issues"
+  },
+  "homepage": "https://github.com/ehguo/rstracker#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  }
+}
