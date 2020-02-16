@@ -270,5 +270,6 @@ const weekly = [
 const monthly = [
   'Giant Oyster',
   'God Statues',
-  'Troll Invasion'
+  'Troll Invasion',
+  'Premier Club Vault'
 ];
