@@ -239,16 +239,17 @@ const resetMonthly = () => {
  * Default values
  */
 const daily = [
-  'Jack of trades aura',
-  'Wicked hood',
-  'Vis wax',
+  'Crystal tree (Farming)',
+  'Crystal-flecked sandstone (ore)',
   'Gorajo resource dungeon',
   'Travelling Merchant\'s Shop',
   'Challenge System',
-  'Crystal tree (Farming)',
+  'Wicked hood',
+  'Vis wax',
   'Herbs',
   'Bloodwood tree',
-  'Soul Reaper'
+  'Soul Reaper',
+  'Jack of trades aura'
 ];
 
 const weekly = [
