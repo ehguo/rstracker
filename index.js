@@ -239,6 +239,7 @@ const resetMonthly = () => {
  * Default values
  */
 const daily = [
+  'Ports',
   'Crystal tree (Farming)',
   'Crystal-flecked sandstone (ore)',
   'Gorajo resource dungeon',
