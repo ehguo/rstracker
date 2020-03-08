@@ -240,6 +240,7 @@ const resetMonthly = () => {
  */
 const daily = [
   'Ports',
+  'In Memory of the Myreque',
   'Crystal tree (Farming)',
   'Crystal-flecked sandstone (ore)',
   'Gorajo resource dungeon',
